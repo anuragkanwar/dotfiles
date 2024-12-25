@@ -106,9 +106,24 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH=$PATH:/usr/local/go/bin
 eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias ff='fastfetch -c ~/.config/ascii-art/colored-hinata.jsonc'
+# ff
+
+
+# pnpm
+export PNPM_HOME="/home/anumax/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
