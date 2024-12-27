@@ -1,0 +1,13 @@
+VIM="nvim"
+
+bindkey -s  "tmux-sessionizer\n"
+
+
+addToPathFront() {
+  if [[ "$PATH" != *"$1"* ]]; then
+    export PATH=$1:$PATH
+  fi
+}
+
+
+addToPathFront $HOME/.local/scripts

@@ -105,6 +105,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.zsh_profile
+
+
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
