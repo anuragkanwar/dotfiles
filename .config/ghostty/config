@@ -1,0 +1,5 @@
+# custom-shader = shaders/bloom.glsl
+
+font-family = CaskaydiaCove Nerd Font
+font-size = 12
+theme = catppuccin-mocha
