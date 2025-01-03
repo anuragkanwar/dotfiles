@@ -2,7 +2,7 @@ VIM="nvim"
 
 bindkey -s  "tmux-sessionizer\n"
 
-
+alias settings "env XDG_CURRENT_DESKTOP\=GNOME gome-control-center"
 addToPathFront() {
   if [[ "$PATH" != *"$1"* ]]; then
     export PATH=$1:$PATH
