@@ -11,3 +11,4 @@ addToPathFront() {
 
 
 addToPathFront $HOME/.local/scripts
+addToPathFront $HOME/projects/zig-linux-x86_64-0.13.0

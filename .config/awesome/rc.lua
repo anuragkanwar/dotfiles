@@ -67,23 +67,23 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+modkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.floating,
-	awful.layout.suit.tile,
-	awful.layout.suit.tile.left,
-	awful.layout.suit.tile.bottom,
-	awful.layout.suit.tile.top,
-	awful.layout.suit.fair,
-	awful.layout.suit.fair.horizontal,
-	awful.layout.suit.spiral,
-	awful.layout.suit.spiral.dwindle,
+	-- awful.layout.suit.tile,
+	-- awful.layout.suit.tile.left,
+	-- awful.layout.suit.tile.bottom,
+	-- awful.layout.suit.tile.top,
+	-- awful.layout.suit.fair,
+	-- awful.layout.suit.fair.horizontal,
+	-- awful.layout.suit.spiral,
+	-- awful.layout.suit.spiral.dwindle,
 	awful.layout.suit.max,
 	awful.layout.suit.max.fullscreen,
-	awful.layout.suit.magnifier,
-	awful.layout.suit.corner.nw,
+	-- awful.layout.suit.magnifier,
+	-- awful.layout.suit.corner.nw,
 	-- awful.layout.suit.corner.ne,
 	-- awful.layout.suit.corner.sw,
 	-- awful.layout.suit.corner.se,
@@ -196,6 +196,10 @@ local function set_wallpaper(s)
 	end
 end
 
+-- NOTE: Screen dpi set here
+
+awful.screen.set_auto_dpi_enabled(true)
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -205,11 +209,11 @@ awful.screen.connect_for_each_screen(function(s)
 
 	-- Each screen has its own tag table.
 	-- INFO: here i have custom code from a video with a guy with white and specs and googly eyes
-	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-	-- local names = { "main", "browser", "office", "media" }
-	-- local l = awful.layout.suit
-	-- local layouts = { l.tile, l.tile, l.floating, l.floating, l.floating }
-	-- awful.tag(names, layouts)
+	-- awful.tag({ "main", "browser", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+	local names = { "main", "browser", "office", "media", "5", "6", "7" }
+	local l = awful.layout.suit
+	local layouts = { l.max, l.max, l.floating, l.floating, l.floating, l.floating, l.floating }
+	awful.tag(names, s, layouts)
 	--
 	-- INFO: end here
 	-- Create a promptbox for each screen
@@ -381,7 +385,7 @@ clientkeys = gears.table.join(
 		c.fullscreen = not c.fullscreen
 		c:raise()
 	end, { description = "toggle fullscreen", group = "client" }),
-	awful.key({ modkey }, "c", function(c)
+	awful.key({ modkey, "shift" }, "c", function(c)
 		c:kill()
 	end, { description = "close", group = "client" }),
 	awful.key(
@@ -536,8 +540,9 @@ awful.rules.rules = {
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = true } },
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
+	{ rule = { class = "terminal" }, properties = { screen = 1, tag = "2" } },
+	{ rule = { class = "Firefox" }, properties = { screen = 1, tag = "2" } },
+	{ rule = { class = "Chrome Browser" }, properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
