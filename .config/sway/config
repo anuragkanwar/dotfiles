@@ -18,8 +18,8 @@ set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show
-
+set $menu "rofi -combi-modi window,drun,ssh,emoji,run -show combi -show-icons"
+xwayland enable
 include /etc/sway/config-vars.d/*
 
 
