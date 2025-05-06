@@ -21,9 +21,10 @@
 
 window {
     height: 600;
-    width: 600
+    width: 600;
 
     border: 3;
+    padding: 0;
     border-radius: 10;
     border-color: @lavender;
 }
@@ -74,6 +75,10 @@ element {
     padding: 5;
     vertical-align: 0.5;
     border-radius: 10;
+    background-color: @surface0;
+}
+
+element.normal.normal {
     background-color: @surface0;
 }
 
