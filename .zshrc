@@ -121,6 +121,10 @@ export NVM_DIR="$HOME/.nvm"
 
 alias ff='fastfetch -c ~/.config/ascii-art/colored-hinata.jsonc'
 # ff
+#
+
+export JAVA_HOME="/usr/lib/jvm/java-1.21.0-openjdk-amd64"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 
 # pnpm
