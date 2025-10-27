@@ -7,6 +7,7 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export GCM_CREDENTIAL_STORE=secretservice
+export SSH_AUTH_SOCK="/run/user/1000/gnupg/S.gpg-agent.ssh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -74,7 +75,9 @@ export GCM_CREDENTIAL_STORE=secretservice
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions )
-
+ZSH_THEME="catppuccin"
+CATPPUCCIN_FLAVOR="mocha" # Required! Options: mocha, flappe, macchiato, latte
+CATPPUCCIN_SHOW_TIME=true  # Optional! If set to true, this will add the current time to the prompt.
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -109,10 +112,8 @@ fi
 source ~/.zsh_profile
 
 
-export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
-eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -142,3 +143,5 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.turso/env"
